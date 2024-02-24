@@ -42,7 +42,7 @@ export const Todos = () => {
     setTodos(prevTodos => prevTodos.filter(todo => todo.id !== id));
   };
 
-  const toggleForm = () => {
+  const cancelUpdate = () => {
     setIsEditing(false);
     setCurrentTodo({});
   };
@@ -54,7 +54,7 @@ export const Todos = () => {
     };
 
     setTodos(todos.map(todo => (todo.id === newTodo.id ? newTodo : todo)));
-    toggleForm();
+    cancelUpdate();
   };
 
   return (
@@ -64,7 +64,7 @@ export const Todos = () => {
       ) : (
         <EditForm
           defaultValue={currentTodo.text}
-          cancel={toggleForm}
+          cancel={cancelUpdate}
           updateTodo={editTodo}
         />
       )}

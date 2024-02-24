@@ -2,10 +2,10 @@ import { MdOutlineCancel } from 'react-icons/md';
 import { RiSaveLine } from 'react-icons/ri';
 import css from './EditForm.module.css';
 
-export const EditForm = ({ toggleForm, cancel, defaultValue }) => {
+export const EditForm = ({ updateTodo, cancel, defaultValue }) => {
   const handleSubmit = e => {
     e.preventDefault();
-    toggleForm(e.target.text.value);
+    updateTodo(e.target.text.value);
     e.target.reset();
   };
 
