@@ -61,9 +61,9 @@ import { Text } from 'components';
 ```jsx
 <Grid>
   {array.map(() => (
-    <li>
+    <GridItem>
       <TodoListItem />
-    </li>
+    </GridItem>
   ))}
 </Grid>
 ```
@@ -74,7 +74,6 @@ import { Text } from 'components';
 одного елемента списку потрбно використати універсальний компонент `<GridItem/>`
 
 ```jsx
-<GridItem>
   <div className={style.box}>
     <Text textAlign="center" marginBottom="20">
       TODO #1
@@ -84,7 +83,6 @@ import { Text } from 'components';
       <RiDeleteBinLine size={24} />
     </button>
   </div>
-</GridItem>
 ```
 
 ## Крок 2
