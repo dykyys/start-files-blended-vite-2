@@ -3,7 +3,6 @@ import 'react-tabs/style/react-tabs.css';
 import { Section, Container } from 'components';
 import { Photos } from 'tabs/Photos';
 import { Todos } from 'tabs/Todos';
-
 export const App = () => {
   return (
     <Section>
