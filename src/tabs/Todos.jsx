@@ -1,12 +1,13 @@
-import { TodoForm, Text, TodoList } from 'components';
+import { TodoForm, Text, TodoList, EditForm } from 'components';
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
 import { useEffect } from 'react';
-
 export const Todos = () => {
   const [todos, setTodos] = useState(
     () => JSON.parse(localStorage.getItem('todos')) ?? [],
   );
+  const [isEditing, setIsEditing] = useState(false);
+  //const [currentTodo, setCurrentTodo] = useState({});
   useEffect(() => localStorage.setItem('todos', JSON.stringify(todos)));
 
   const addTodo = ({ text }) => {
@@ -19,11 +20,18 @@ export const Todos = () => {
   const deletTodo = id => {
     setTodos(prevState => prevState.filter(todo => todo.id !== id));
   };
+  const handelEditTodo = () => {
+    setIsEditing(!isEditing);
+  };
   return (
     <>
-      <TodoForm onSubmit={addTodo} />
+      {isEditing ? <TodoForm onSubmit={addTodo} /> : <EditForm />}
       {todos.length > 0 ? (
-        <TodoList array={todos} deletTodo={deletTodo} />
+        <TodoList
+          array={todos}
+          deletTodo={deletTodo}
+          handelEditTodo={handelEditTodo}
+        />
       ) : (
         <Text textAlign="center">There are no any todos ...</Text>
       )}
