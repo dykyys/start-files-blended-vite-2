@@ -1,6 +1,6 @@
 export * from './Section/Section';
 export * from './Container/Container';
-export * from './Form/Form';
+export * from './TodoForm/TodoForm';
 export * from './EditForm/EditForm';
 export * from './Text/Text';
 export * from './PhotosGallery/PhotosGallery';

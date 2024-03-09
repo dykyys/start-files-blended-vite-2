@@ -10,15 +10,15 @@ export const App = () => {
       <Container>
         <Tabs>
           <TabList>
-            <Tab>Photos</Tab>
             <Tab>Todos</Tab>
+            <Tab>Photos</Tab>
           </TabList>
 
           <TabPanel>
-            <Photos />
+            <Todos />
           </TabPanel>
           <TabPanel>
-            <Todos />
+            <Photos />
           </TabPanel>
         </Tabs>
       </Container>
