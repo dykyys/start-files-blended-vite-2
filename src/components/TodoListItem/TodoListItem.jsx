@@ -25,7 +25,7 @@ export const TodoListItem = ({
       <button
         className={style.editButton}
         type="button"
-        onClick={() => handelEditTodo(text)}
+        onClick={() => handelEditTodo({ id, text })}
       >
         <RiEdit2Line size={24} />
       </button>

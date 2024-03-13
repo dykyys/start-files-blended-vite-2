@@ -2,13 +2,19 @@ import { RiSaveLine } from 'react-icons/ri';
 import { MdOutlineCancel } from 'react-icons/md';
 import style from './EditForm.module.css';
 export const EditForm = ({ updateTodo, cancelUpdate, defaultValue }) => {
+  const handleSubmit = evt => {
+    evt.preventDefault();
+
+    const form = evt.target;
+    const { text } = form.elements;
+    updateTodo(defaultValue.id, text.value);
+
+    form.reset();
+  };
+
   return (
-    <form className={style.form}>
-      <button
-        className={style.submitButton}
-        type="submit"
-        onSubmit={updateTodo}
-      >
+    <form className={style.form} onSubmit={handleSubmit}>
+      <button className={style.submitButton} type="submit">
         <RiSaveLine color="green" size="16px" />
       </button>
 
@@ -18,14 +24,10 @@ export const EditForm = ({ updateTodo, cancelUpdate, defaultValue }) => {
 
       <input
         className={style.input}
-        value={defaultValue.text}
-        // onChange={evt =>
-        //   setCurrentTodo({ ...currentTodo, text: evt.target.value })
-        // }
+        defaultValue={defaultValue.text}
         placeholder="What do you want to write?"
         name="text"
         required
-        //defaultValue={defaultValue}
         autoFocus
       />
     </form>
