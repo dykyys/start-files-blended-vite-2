@@ -13,7 +13,7 @@ export const Todos = () => {
   useEffect(() => localStorage.setItem('todos', JSON.stringify(todos)));
 
   const findTodo = text => {
-    return todos.some(todo => todo.text === text);
+    return todos.some(todo => todo.text.toLowerCase() === text.toLowerCase());
   };
 
   const addTodo = ({ text }) => {
@@ -34,7 +34,6 @@ export const Todos = () => {
   };
 
   const handelEditTodo = ({ id, text }) => {
-    //чому не використовуємо попередній стан
     setCurrentTodo({ id, text });
     setIsEditing(true);
   };
