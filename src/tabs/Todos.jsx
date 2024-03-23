@@ -1,5 +1,19 @@
-import { Text } from 'components';
+import { Form } from 'components';
+import { nanoid } from 'nanoid';
+import { useState } from 'react';
 
 export const Todos = () => {
-  return <Text textAlign="center">There are no any todos ...</Text>;
+  const [todos, setTodos] = useState([]);
+  const addTodo = text => {
+    const toDo = {
+      text,
+      id: nanoid(),
+    };
+    setTodos([...todos, toDo]);
+  };
+  return (
+    <>
+      <Form addTodo={addTodo} />
+    </>
+  );
 };
