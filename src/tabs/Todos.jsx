@@ -1,4 +1,4 @@
-import { Form } from 'components';
+import { Form, TodoList } from 'components';
 import { nanoid } from 'nanoid';
 import { useState } from 'react';
 
@@ -14,6 +14,7 @@ export const Todos = () => {
   return (
     <>
       <Form addTodo={addTodo} />
+      <TodoList todos={todos} />
     </>
   );
 };
