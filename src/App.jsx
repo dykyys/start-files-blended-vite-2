@@ -3,6 +3,7 @@ import 'react-tabs/style/react-tabs.css';
 import { Section, Container } from 'components';
 import { Photos } from 'tabs/Photos';
 import { Todos } from 'tabs/Todos';
+import { Toaster } from 'react-hot-toast';
 
 export const App = () => {
   return (
@@ -10,18 +11,19 @@ export const App = () => {
       <Container>
         <Tabs>
           <TabList>
-            <Tab>Todos</Tab>
             <Tab>Photos</Tab>
+            <Tab>Todos</Tab>
           </TabList>
 
           <TabPanel>
-            <Todos />
+            <Photos />
           </TabPanel>
           <TabPanel>
-            <Photos />
+            <Todos />
           </TabPanel>
         </Tabs>
       </Container>
+      <Toaster />
     </Section>
   );
 };
