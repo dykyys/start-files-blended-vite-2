@@ -1,4 +1,4 @@
-import { Text } from 'components';
+import { Text, TodoList } from 'components';
 import { useState } from 'react';
 import Form from '../components/Form/Form';
 import { nanoid } from 'nanoid';
@@ -20,12 +20,14 @@ export const Todos = () => {
     //       return
     //         [...prevTodos, newTodo]
     // })
+    e.currentTarget.reset();
   };
 
   return (
     <>
       <Text textAlign="center">There are no any todos ...</Text>
       <Form onSubmit={addTodo}></Form>
+      <TodoList array={todos} />
     </>
   );
 };
