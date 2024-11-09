@@ -5,7 +5,7 @@ export const Form = ({ onSubmit }) => {
   const handleForm = e => {
     e.preventDefault();
     const inputText = e.target.elements.search.value.trim();
-    console.log('inputText:', inputText);
+
     onSubmit(inputText);
     e.target.reset();
   };
