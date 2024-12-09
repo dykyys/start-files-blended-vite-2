@@ -1,6 +1,6 @@
 import style from './Text.module.css';
 
-export const Text = ({ children, textAlign = '', marginBottom = '0' }) => {
+const Text = ({ children, textAlign = '', marginBottom = '0' }) => {
   return (
     <p
       className={[
@@ -13,3 +13,5 @@ export const Text = ({ children, textAlign = '', marginBottom = '0' }) => {
     </p>
   );
 };
+
+export default Text;

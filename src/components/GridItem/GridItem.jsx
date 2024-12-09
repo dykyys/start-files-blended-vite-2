@@ -1,3 +1,4 @@
-export const GridItem = () => {
-  return <h3>GridItem</h3>;
+const GridItem = ({ children }) => {
+  return <li>{children}</li>;
 };
+export default GridItem;

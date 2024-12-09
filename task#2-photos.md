@@ -8,15 +8,6 @@
 Доповни компоненти `<Form>`, `<PhotosGallery>`, `<PhotosGalleryItem>`. Для
 створення сітки використовуй компоненти `<Grid>` та `<GridItem>`
 
-> Тут самі файли [Grid](./src/components/Grid/Grid.jsx)
-
-В проекті налаштовані Alias imports тому імпорти можна вказувати з папки
-`components`
-
-```jsx
-import { Text } from 'components';
-```
-
 ## Інструкція Pexels API
 
 Для HTTP-запитів використовуй публічний сервіс пошуку зображень

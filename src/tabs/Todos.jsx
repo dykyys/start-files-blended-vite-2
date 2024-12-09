@@ -1,5 +1,7 @@
-import { Text } from 'components';
+import Text from '../components/Text/Text';
 
-export const Todos = () => {
+const Todos = () => {
   return <Text textAlign="center">There are no any todos ...</Text>;
 };
+
+export default Todos;
