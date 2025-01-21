@@ -1,5 +1,3 @@
-// import { getPhotos } from 'apiService/photos';
-
 import Text from '../components/Text/Text';
 
 const Photos = () => {
