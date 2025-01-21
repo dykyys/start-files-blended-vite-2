@@ -4,7 +4,6 @@ import Section from './components/Section/Section';
 import Container from './components/Container/Container';
 import Todos from './tabs/Todos';
 import Photos from './tabs/Photos';
-import Tasks from './tabs/Tasks';
 
 export const App = () => {
   return (
@@ -14,7 +13,6 @@ export const App = () => {
           <TabList>
             <Tab>Todos</Tab>
             <Tab>Photos</Tab>
-            <Tab>Tasks</Tab>
           </TabList>
 
           <TabPanel>
@@ -22,9 +20,6 @@ export const App = () => {
           </TabPanel>
           <TabPanel>
             <Photos />
-          </TabPanel>
-          <TabPanel>
-            <Tasks />
           </TabPanel>
         </Tabs>
       </Container>
