@@ -26,7 +26,7 @@ axios.defaults.params = {
 ```
 
 Pexels API підтримує пагінацію, за замовчуванням параметр `page` дорівнює `1`.
-Функція `getPhotos` реалызована так, що у відповіді надходить по 15 об'єктів, це встановлено в параметрі `per_page`.
+Функція `getPhotos` реалізована так, що у відповіді надходить по 15 об'єктів, це встановлено в параметрі `per_page`.
 
 У відповіді від API приходить масив об'єктів, в яких тобі цікаві лише наступні
 властивості.
@@ -149,14 +149,12 @@ const images = [
 Компонент елемента списку із зображенням. Створює компонент наступної структури.
 
 ```jsx
-<GridItem>
-  <div
-    className={styles.thumb}
-    style={{ backgroundColor: avg_color, borderColor: avg_color }}
-  >
-    <img src={src.large} alt={alt} />
-  </div>
-</GridItem>
+<div
+  className={styles.thumb}
+  style={{ backgroundColor: avg_color, borderColor: avg_color }}
+>
+  <img src={src.large} alt={alt} />
+</div>
 ```
 
 ### Крок 3. Робота зі стейтом
