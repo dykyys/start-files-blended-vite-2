@@ -159,7 +159,7 @@ const todos = [
 Після додавання кнопки редагування компонент `<TodoListItem/>` буде мати такий вигляд
 
 ```jsx
-<GridItem>
+<>
   <div className={style.box}>
     <Text textAlign="center" marginBottom="20">
       TODO #1
@@ -173,7 +173,7 @@ const todos = [
       <RiEdit2Line size={24} />
     </button>
   </div>
-</GridItem>
+</>
 ```
 
 ### Опис компонента `<EditForm/>`
