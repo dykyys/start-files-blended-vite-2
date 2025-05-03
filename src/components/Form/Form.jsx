@@ -1,12 +1,14 @@
+import toast from 'react-hot-toast';
+
 import { FiSearch } from 'react-icons/fi';
 import style from './Form.module.css';
 
-const Form = ({onSubmit}) => {
-  const handleSubmit = (event) => {
+const Form = ({ onSubmit }) => {
+  const handleSubmit = event => {
     event.preventDefault();
     const searchValue = event.target.elements.search.value;
     if (searchValue.trim() === '') {
-      alert('Please input text');  
+      toast.error('Please input text');
       return;
     }
     onSubmit(searchValue);
