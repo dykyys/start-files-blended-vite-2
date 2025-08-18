@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import { getPhotos } from '../apiService/photos';
 
@@ -13,22 +13,37 @@ const Photos = () => {
   const [page, setPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
+  let isEndOfGallery = useRef(false);
 
   useEffect(() => {
     if (query === '') return;
 
-    async function setGallery() {
+    async function uploadGallery() {
       setIsLoading(true);
-      const data = await getPhotos(query, page);
-      if (!data.photos) {
+      try {
+        const data = await getPhotos(query, page);
+        const { per_page, total_results, photos } = data;
+        setImages(images => {
+          return [...images, ...photos];
+        });
+        total_results / per_page > 1
+          ? (isEndOfGallery.current = false)
+          : (isEndOfGallery.current = true);
+        console.log(total_results / per_page > 1);
+      } catch (error) {
         setIsError(true);
+        console.log(error);
+      } finally {
+        setIsLoading(false);
       }
-      setImages(data.photos);
     }
-
-    setGallery();
-    setIsLoading(false);
+    uploadGallery();
   }, [query, page]);
+
+  const onSearch = query => {
+    setQuery(query);
+    setPage(1);
+  };
 
   const uploadMorePhotos = () => {
     setPage(page + 1);
@@ -36,15 +51,17 @@ const Photos = () => {
 
   return (
     <>
-      <Form onSubmit={setQuery} />
+      <Form onSubmit={onSearch} />
       {images.length > 0 && !isLoading && !isError && (
         <PhotosGallery images={images} />
       )}
       {isLoading && <Loader />}
       {isError && <p>Oops... Something went wrong...</p>}
-      <Button onClick={uploadMorePhotos} disabled={false}>
-        <p>Load more</p>
-      </Button>
+      {query && (
+        <Button onClick={uploadMorePhotos} disabled={isEndOfGallery.current}>
+          <p>Load more</p>
+        </Button>
+      )}
     </>
   );
 };
